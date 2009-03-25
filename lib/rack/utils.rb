@@ -348,7 +348,7 @@ module Rack
             # Save the rest.
             if i = buf.index(rx)
               body << buf.slice!(0, i)
-              buf.slice!(0, boundary_size+2)
+              buf.slice!(0, boundary_size)
 
               content_length = -1  if $1 == "--"
             end

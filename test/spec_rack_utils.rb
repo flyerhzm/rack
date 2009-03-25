@@ -240,7 +240,7 @@ context "Rack::Utils::Multipart" do
     params["submit-name"].should.equal "Larry"
     params["files"][:type].should.equal "text/plain"
     params["files"][:filename].should.equal "file1.txt"
-    params["files"][:head].should.equal "Content-Disposition: form-data; " +
+    params["files"][:head].should.equal "\r\nContent-Disposition: form-data; " +
       "name=\"files\"; filename=\"file1.txt\"\r\n" +
       "Content-Type: text/plain\r\n"
     params["files"][:name].should.equal "files"
@@ -253,7 +253,7 @@ context "Rack::Utils::Multipart" do
     params["foo"]["submit-name"].should.equal "Larry"
     params["foo"]["files"][:type].should.equal "text/plain"
     params["foo"]["files"][:filename].should.equal "file1.txt"
-    params["foo"]["files"][:head].should.equal "Content-Disposition: form-data; " +
+    params["foo"]["files"][:head].should.equal "\r\nContent-Disposition: form-data; " +
       "name=\"foo[files]\"; filename=\"file1.txt\"\r\n" +
       "Content-Type: text/plain\r\n"
     params["foo"]["files"][:name].should.equal "foo[files]"
@@ -266,7 +266,7 @@ context "Rack::Utils::Multipart" do
     params["submit-name"].should.equal "Larry"
     params["files"][:type].should.equal "image/png"
     params["files"][:filename].should.equal "rack-logo.png"
-    params["files"][:head].should.equal "Content-Disposition: form-data; " +
+    params["files"][:head].should.equal "\r\nContent-Disposition: form-data; " +
       "name=\"files\"; filename=\"rack-logo.png\"\r\n" +
       "Content-Type: image/png\r\n"
     params["files"][:name].should.equal "files"
@@ -279,7 +279,7 @@ context "Rack::Utils::Multipart" do
     params["submit-name"].should.equal "Larry"
     params["files"][:type].should.equal "text/plain"
     params["files"][:filename].should.equal "file1.txt"
-    params["files"][:head].should.equal "Content-Disposition: form-data; " +
+    params["files"][:head].should.equal "\r\nContent-Disposition: form-data; " +
       "name=\"files\"; filename=\"file1.txt\"\r\n" +
       "Content-Type: text/plain\r\n"
     params["files"][:name].should.equal "files"
